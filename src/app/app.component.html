@@ -1,0 +1,76 @@
+<h1>Independer zoo</h1>
+
+<h4>Sort by:</h4>
+<select (change)="sortData($event)">
+  <option>- select your choice -</option>
+  <option value="Age">Age</option>
+  <option value="Name">Name (ascending)</option>
+</select>
+
+<hr />
+
+<h4>Filter animal type:</h4>
+<div>
+  <input
+    type="radio"
+    name="animalType"
+    id="showAll"
+    checked
+    value="showAll"
+    (click)="filterData($event)"
+  />
+  <label for="showAll">Show all</label>
+</div>
+<div>
+  <input
+    type="radio"
+    name="animalType"
+    id="dog"
+    value="dog"
+    (click)="filterData($event)"
+  />
+  <label for="dog">Dog</label>
+</div>
+<div>
+  <input
+    type="radio"
+    name="animalType"
+    id="cat"
+    value="cat"
+    (click)="filterData($event)"
+  />
+  <label for="cat">Cat</label>
+</div>
+<div>
+  <input
+    type="radio"
+    name="animalType"
+    id="lion"
+    value="lion"
+    (click)="filterData($event)"
+  />
+  <label for="lion">Lion</label>
+</div>
+<div>
+  <input
+    type="radio"
+    name="animalType"
+    id="bird"
+    value="bird"
+    (click)="filterData($event)"
+  />
+  <label for="bird">Bird</label>
+</div>
+
+<hr />
+
+<h4>Group by animal type:</h4>
+<div>
+  When this button is clicked, then it will show for example all the dogs first,
+  and then all the cats, and so on.
+</div>
+<button type="button" (click)="groupData()">Group by animal type</button>
+
+<hr />
+
+<animal-block *ngFor="let animal of animals" [animal]="animal"></animal-block>
